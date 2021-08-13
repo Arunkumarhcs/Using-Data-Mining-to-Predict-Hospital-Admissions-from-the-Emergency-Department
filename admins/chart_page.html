@@ -1,0 +1,70 @@
+{% extends 'admins/admin_design.html' %}
+{% block adminblock %}
+{% load staticfiles %}
+
+
+
+
+
+
+
+
+<form method="post">
+    {% csrf_token %}
+    <table>
+    <tr>
+        <td>Select Year</td>
+<td> <select name="yr" >
+        {% for d in obj %}
+    <option value="{{d.year}}">
+        {{d.year}}</option>
+        {%endfor%}
+
+   </select></td>
+        <td><input type="submit" value="submit"></td>
+    </tr>
+    </table>
+</form>
+<style>
+
+</style>
+
+<h2 style="margin-left:470px;">YEAR OF ANALYSIS:{{fg}}</h2>
+
+<script>
+window.onload = function() {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	title: {
+		text: " HOSPITAL ADMISSIONS DETAILS"
+	},
+	data: [{
+	{% if chart_type == "bar" %}
+		type: "bar",
+	{% elif chart_type == "pie" %}
+		type: "pie",
+	{% elif chart_type == "spline" %}
+		type: "spline",
+	{% endif %}
+		startAngle: 240,
+		yValueFormatString: "##0.00\"%\"",
+		indexLabel: "{label} {y}",
+		dataPoints: [
+		{% for o in cht %}
+			{y: {{o.dcount}}, label: "{{o.reason}}"},
+		{% endfor %}
+		]
+	}]
+});
+chart.render();
+
+}
+
+</script>
+
+
+<div id="chartContainer" class="graph" style="height: 370px; width: 1020px; margin: 0px auto;margin-left:100px;"></div>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+{% endblock %}

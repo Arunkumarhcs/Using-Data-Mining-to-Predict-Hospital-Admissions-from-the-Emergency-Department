@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    body{
+    background: rgba(230,230,250,0.1);
+ background-size: cover;
+    }
+        .menu table{
+          width:100%;
+          text-align:center;
+
+          }
+          .menu table td:hover{
+          background:rgba(0,0,255,0.3);
+
+          }
+          .menu table td{
+          background:rgba(0,0,255);
+
+         }
+          .menu table,.menu table th,.menu table td {
+    border: ;
+    border-collapse: collapse;
+
+}
+.menu table th,.menu table  td {
+    padding: 15px;
+
+    }
+
+
+          .topic h1{
+          color:black;
+          padding:2px;
+          text-align:center;
+          border-style:none;
+          height:100px;
+          width:1330px;
+          float:left;
+
+
+          }
+          .mainholder{
+
+          position:relative;
+          top:50px;
+          left:50px;
+          z-index:999;
+          float:left;
+          }
+.project{
+border-style:solid;
+border-color:block;
+height:400px;
+width:1100px;
+margin-left:100px;
+margin-top:50px;
+ background: url("{% static '11w.jpg' %}");
+ background-size: cover;
+}
+
+    </style>
+</head>
+<body>
+<div class="background-image">
+    <div class="topic"><h1 style="font-family:Calibri;color:block;margin-top:10px;margin-left:0px;border-style:none;width:1300px;height:40px;border-color:black;background:;">
+       Using Datamining To Predict Hospital Admissions Pranthe Emergency Department
+    </h1></div>
+<div class="">
+        <table>
+            <tr>
+                <td><a  style="color:red;text-decoration: none;margin-left:300px" href="{% url 'mydetails' %}">MY DETAILS</a></td>
+                <td><a  style="color:red;text-decoration: none;margin-left:30px" href="{% url 'upload_page' %}"> UPLOAD PATENT DETAILS</a></td>
+                <td><a  style="color:red;text-decoration: none;margin-left:30px" href="{% url 'search_patent' %}"> PATENT DETAILS</a></td>
+                <td><a  style="color:red;text-decoration: none;margin-left:30px" href="{% url 'dataset' %}"> VIEW VIEW DATASET</a></td>
+                <td><a  style="color:red;text-decoration: none;margin-left:30px" href="{% url 'chart_page' %}"> GRAPHICAL ANALYSIS</a></td>
+
+                <td><a  style="color:red;text-decoration: none;margin-left:30px" href="{% url 'index' %}">LOGOUT</a></td>
+
+
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="project">
+
+</div>
+<div class="marqee">
+
+</div>
+<div class="mainholder">
+{% block adminblock %}
+{% endblock %}
+</div>
+
+</body>
+</html>

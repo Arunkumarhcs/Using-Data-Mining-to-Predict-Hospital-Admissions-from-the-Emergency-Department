@@ -1,0 +1,85 @@
+{% extends 'admins/admin_design.html' %}
+{% block adminblock %}
+{% load staticfiles %}
+
+
+<style>
+    .userdetails{
+     position: absolute;
+    margin-top:50px;
+    left:150px;
+    padding:5px;
+    height:350px;
+    width:980px;
+    overflow:scroll;
+    float:left;
+    }
+    .userdetails table{
+    width:60em;
+    text-align:center;
+
+    border-spacing:1px;
+    background:;
+}
+
+
+.userdetails table tr th{
+background:rgb(0, 204, 102);
+padding:5px;
+}
+.userdetails table tr td{
+background:rgba(0, 204, 102,0.5);
+padding:5px;
+}
+.userdetails table tr:hover td{
+background:rgba();
+}
+.sideimage{
+border-color:rgba(199,21,133,0.8);
+ border-width:1px;
+ height:380px;
+ width:360px;
+ margin-top:50px;
+ margin-left:830px;
+ background: url("{% static '17.jpg' %}");
+ background-size: 100%100%;
+float:left;
+}
+</style>
+<div class="userdetails">
+<table>
+    <tr>
+        <th >Patent Id</th>
+        <th>Patent Name</th>
+        <th>Patent Age</th>
+        <th>Patent Problems</th>
+        <th>Patent Address</th>
+        <th>Mobile Number </th>
+        <th>Patent Email Id </th>
+        <th>Gender</th>
+        <th>Ward Type </th>
+        <th>Reason</th>
+        <th>Date</th>
+
+
+    </tr>
+    {% for i in obj %}
+    <tr>
+
+    <td style="color:">{{i.patentid}}</td>
+ <td style="color:">{{i.panentname}}</td>
+ <td style="color:">{{i.age}}</td>
+ <td style="color:">{{i.problem}}</td>
+ <td style="color:">{{i.address}}</td>
+ <td style="color:">{{i.moblenumber}}</td>
+ <td style="color:">{{i.mail}}</td>
+ <td style="color:">{{i.gender}}</td>
+ <td style="color:">{{i.ward_type}}</td>
+ <td style="color:">{{i.reason}}</td>
+ <td style="color:">{{i.date}}</td>
+</tr>
+    {% endfor %}
+</table>
+</div>
+<div class="sideimage"></div>
+{% endblock %}
